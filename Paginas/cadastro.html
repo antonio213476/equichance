@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+    <title>Pagina INW AT</title>
+</head>
+<body>
+       <div class="d-flex align-items-center flex-column">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../Imagens/LogoEquiChance.png" class="img-fluid" alt="Equichance">
+          </a>
+    
+          <h1 class="text-center mt-3">
+            Cadastrar na equichance
+          </h1>
+       </div>
+      
+
+      <div class="mt-5 mb-5 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50" style="width: 50%; transform: translateX(50%)">
+        <form class="mb-3 mt-3 d-flex flex-column align-items-center">
+            <div class="mb-3"style="width: 85%;">
+                <label class="form-label">Nome Completo*</label>
+                <input type="text" class="form-control border-secondary border-opacity-50">
+              </div>
+            <div class="d-flex flex-row mb-3" style="width: 85%;">
+                <div class="me-2 w-50">
+                    <label  class="form-label">Email*</label>
+                    <input type="email" class="form-control border-secondary border-opacity-50">
+                  </div>
+                  <div class="ms-2 w-50">
+                    <label for="exampleInputPassword1" class="form-label">Senha*</label>
+                    <input type="password" class="form-control border-secondary border-opacity-50">
+                  </div>
+            </div>
+            <div class="d-flex flex-row mb-3" style="width: 85%;">
+                <div class="w-100">
+                    <label  class="form-label">Endereço</label>
+                    <input type="text" class="form-control border-secondary border-opacity-50">
+                  </div>
+            </div>
+            <div class="d-flex flex-row mb-3" style="width: 85%;">
+                <div class="me-2" style="width:25%;">
+                    <label  class="form-label">Bairro</label>
+                    <input type="text" class="form-control border-secondary border-opacity-50">
+                  </div>
+                  <div class="me-2" style="width:25%;">
+                    <label  class="form-label">Complemento</label>
+                    <input type="text" class="form-control border-secondary border-opacity-50">
+                  </div>
+                  <div class="me-2" style="width:25%">
+                    <label for="exampleInputPassword1" class="form-label">CEP</label>
+                    <input type="text" class="form-control border-secondary border-opacity-50">
+                  </div>
+                  <div class="" style="width:25%">
+                    <label  class="form-label">UF</label>
+                    <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui">
+                    <datalist id="datalistOptions">
+                        <option value="Acre">
+                        <option value="Alagoas ">
+                        <option value="Amapá">
+                        <option value="Amazonas">
+                        <option value="Bahia"> 
+                        <option value="Ceará">
+                        <option value="Distrito_Federal">
+                        <option value="Espírito_Santo">
+                        <option value="Goiás">
+                        <option value="Maranhão">
+                        <option value="Mato Grosso">
+                        <option value="Mato Grosso do Sul">
+                        <option value="Minas Gerais">
+                        <option value="Pará">
+                        <option value="Paraíba">
+                        <option value="Paraná">
+                        <option value="Pernambuco">
+                        <option value="Piauí">
+                        <option value="Rio de Janeiro">
+                        <option value="Rio Grande do Norte">
+                        <option value="Rondônia">
+                        <option value="Roraima">
+                        <option value="Santa Catarina">
+                        <option value="São Paulo">
+                        <option value="Sergipe">
+                        <option value="Tocantins">
+                    </datalist>
+                  </div>
+            </div>
+            <p class="text-danger mb-0" style="width: 85%;">
+                *Obrigatorio
+            </p>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="termosCheck">
+              <label class="form-check-label" for="termosCheck">Concordo com os <u><a href="#">termos de uso</a></u></label>
+            </div>
+            <button type="submit" class="btn btn-success w-50">Cadastrar</button>
+          </form>
+      </div>
+
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
