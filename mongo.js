@@ -28,7 +28,7 @@ const usuarioSchema = new mongoose.Schema({
 
 const Usuario = mongoose.model("Usuario", usuarioSchema)
 
-app.get("/", async(req,res)=>{
+app.get("/equichance", async(req,res)=>{
     res.sendFile(__dirname+"/index.html")
 })
 
