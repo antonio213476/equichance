@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../style.css">
     <title>Pagina INW AT</title>
 </head>
-<body>
+<body class="bg-dark-subtle">
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -24,69 +24,68 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
          <li class="nav-item">
-            <a class="nav-link active fs-5 me-3" aria-current="page" href="index.html">Quem somos</a>
+            <a class="nav-link fs-5 me-3" aria-current="page" href="/">Quem somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="Paginas/doe.html">Doe</a>
+            <a class="nav-link fs-5 me-3" href="doe">Doe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="Paginas/contato.html">Contato</a>
+            <a class="nav-link fs-5 me-3" href="contato">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="Paginas/cadastro.html">Cadastre-se</a>
+            <a class="nav-link active fs-5 me-3" href="cadastro">Cadastre-se</a>
           </li>
     </div>
-  </nav>   
-  
+  </nav>     
+
        <div class="d-flex align-items-center flex-column">
-        <a class="navbar-brand" href="../index.html">
-            <img src="../Imagens/LogoEquiChance.png" class="img-fluid" alt="Equichance">
-          </a>
-    
-          <h1 class="text-center mt-3">
+          <h1 class="text-center mt-5">
             Cadastrar na equichance
           </h1>
        </div>
       
 
       <div class="mt-5 mb-5 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50" style="width: 50%; transform: translateX(50%)">
-        <form class="mb-3 mt-3 d-flex flex-column align-items-center">
+        <form class="mb-3 mt-3 d-flex flex-column align-items-center" action="/cadastro" method="post">
             <div class="mb-3"style="width: 85%;">
                 <label class="form-label">Nome Completo*</label>
-                <input type="text" class="form-control border-secondary border-opacity-50">
+                <input type="text" class="form-control border-secondary border-opacity-50" id="nome" name="nome">
               </div>
             <div class="d-flex flex-row mb-3" style="width: 85%;">
                 <div class="me-2 w-50">
                     <label  class="form-label">Email*</label>
-                    <input type="email" class="form-control border-secondary border-opacity-50">
+                    <input type="email" class="form-control border-secondary border-opacity-50" name="email">
                   </div>
                   <div class="ms-2 w-50">
                     <label for="exampleInputPassword1" class="form-label">Senha*</label>
-                    <input type="password" class="form-control border-secondary border-opacity-50">
+                    <input type="password" class="form-control border-secondary border-opacity-50" name="senha">
                   </div>
             </div>
             <div class="d-flex flex-row mb-3" style="width: 85%;">
                 <div class="w-100">
                     <label  class="form-label">Endereço</label>
-                    <input type="text" class="form-control border-secondary border-opacity-50">
+                    <input type="text" class="form-control border-secondary border-opacity-50" name="endereco">
                   </div>
             </div>
             <div class="d-flex flex-row mb-3" style="width: 85%;">
                 <div class="me-2" style="width:25%;">
                     <label  class="form-label">Bairro</label>
-                    <input type="text" class="form-control border-secondary border-opacity-50">
+                    <input type="text" class="form-control border-secondary border-opacity-50" name="bairro">
                   </div>
                   <div class="me-2" style="width:25%;">
                     <label  class="form-label">Complemento</label>
-                    <input type="text" class="form-control border-secondary border-opacity-50">
+                    <input type="text" class="form-control border-secondary border-opacity-50" name="complemento">
                   </div>
                   <div class="me-2" style="width:25%">
                     <label for="exampleInputPassword1" class="form-label">CEP</label>
-                    <input type="text" class="form-control border-secondary border-opacity-50">
+                    <input type="text" class="form-control border-secondary border-opacity-50" name="CEP">
                   </div>
+
+
+              
                   <div class="" style="width:25%">
                     <label  class="form-label">UF</label>
-                    <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui">
+                    <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui" name="UF">
                     <datalist id="datalistOptions">
                         <option value="Acre">
                         <option value="Alagoas ">

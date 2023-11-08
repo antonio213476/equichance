@@ -16,16 +16,14 @@ mongoose.connect('mongodb://0.0.0.0:27017/equiChanceDB',{
 });
 
 const usuarioSchema = new mongoose.Schema({
+    nome : {type : String, required: true},
     email : {type : String, required: true},
-    senha : {type : String, required: true}
-})
-
-const paoSchema = new mongoose.Schema({
-    id_produtopao : {type : Number, required: true},
-    descricao : {type : String},
-    tipo : {type : String},
-    dataValidade : {type : Date},
-    quantidadeEstoque : {type : Number}
+    senha : {type : String, required: true},
+    endereco : {type : String},
+    bairro : {type : String},
+    complemento : {type : String},
+    CEP : {type : Number},
+    UF : {type : String},
 })
 
 const Usuario = mongoose.model("Usuario", usuarioSchema)
@@ -35,26 +33,34 @@ app.get("/", async(req,res)=>{
 })
 
 app.get("/cadastro", async(req,res)=>{
-    res.sendFile(__dirname+"/cadastro.html")
+    res.sendFile(__dirname+"/Paginas/cadastro.html")
 })
 
 app.get("/contato", async(req,res)=>{
-    res.sendFile(__dirname+"/contato.html")
+    res.sendFile(__dirname+"/Paginas/contato.html")
 })
 
 app.get("/doe", async(req,res)=>{
-    res.sendFile(__dirname+"/doe.html")
+    res.sendFile(__dirname+"/Paginas/doe.html")
 })
 
 app.listen(port, ()=>{
     console.log(`Servidor rodando na porta ${port}`)
-})
+})  
 
 app.post("/cadastro",async(req,res)=>{
-    const email = req.body.email
+    const nome = req.body.nome
+    const email = req.body.email 
     const senha = req.body.senha 
+    const endereco = req.body.endereco
+    const bairro = req.body.bairro 
+    const complemento = req.body.complemento
+    const CEP = req.body.CEP 
+    const UF = req.body.UF 
 
-    if ([email,senha].some(el => el == null) ) {          
+    const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
+
+    if ([nome,email,senha].some(el => el == null) ) {          
         return res.status(400).json({error : "Campos não preenchidos"})
     }
 
@@ -65,9 +71,35 @@ app.post("/cadastro",async(req,res)=>{
     }
 
     const usuarios = new Usuario({
+        nome : nome,
         email : email,
         senha : senha,
     })
+
+    for(let i=-1;i<elementosOpcionais.length - 1;i++) {
+        let elemento = elementosOpcionais[i]
+        let nome = 'error'
+        if(elemento) {
+            switch(i) {
+                case 0:
+                    nome = 'endereco'
+                    break;
+                case 1:
+                    nome = 'bairro'
+                    break;
+                case 2:
+                    nome = 'complemento'
+                    break;
+                case 3:
+                    nome = 'CEP'
+                    break;
+                case 4:
+                    nome = 'UF'
+                    break;
+            }
+            usuarios[nome] = elemento
+        }
+    }
 
     try{
         const newUser = await usuarios.save();
