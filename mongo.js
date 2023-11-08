@@ -105,7 +105,6 @@ app.post("/cadastro",async(req,res)=>{
     // falar no site que o cadastro deu certo e depois rediricionar para a home 
     try{
         const newUser = await usuarios.save();
-        res.json({error : null, msg: "Cadastro feito com successo",userId : newUser._id})
         res.sendFile(__dirname+"/index.html")
     } catch(err) {
         res.status(400).json({err})
