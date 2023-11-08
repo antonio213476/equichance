@@ -33,15 +33,15 @@ app.get("/", async(req,res)=>{
 })
 
 app.get("/cadastro", async(req,res)=>{
-    res.sendFile(__dirname+"/Paginas/cadastro.html")
+    res.sendFile(__dirname+"/cadastro.html")
 })
 
 app.get("/contato", async(req,res)=>{
-    res.sendFile(__dirname+"/Paginas/contato.html")
+    res.sendFile(__dirname+"/contato.html")
 })
 
 app.get("/doe", async(req,res)=>{
-    res.sendFile(__dirname+"/Paginas/doe.html")
+    res.sendFile(__dirname+"/doe.html")
 })
 
 app.listen(port, ()=>{
