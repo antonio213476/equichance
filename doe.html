@@ -32,12 +32,20 @@
             <a class="nav-link fs-5 me-3" href="contato">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="cadastro">Cadastre-se</a>
+            <a id='cadastre' class="nav-link fs-5 me-3" href="cadastro">Cadastre-se</a>
           </li>
     </div>
   </nav>  
 
-     
+  <script>
+    const cadastre = document.getElementById('cadastre')
+    let dat = localStorage.getItem('dataUsuario')
+
+    if(dat) {
+      let pessoa = JSON.parse(dat)
+      cadastre.textContent='Bem vindo, '+pessoa[0]
+    }
+ </script>
     
       <div class="card text-bg-dark" style="border-radius: 0; border: 0;">
         <img src="https://media.discordapp.net/attachments/1096093111328972973/1171771556775608390/Ong3.png?ex=655de44d&is=654b6f4d&hm=17871333111f3e8c34a0218cbc4695871cdc985136028a2c20a7d5804e762aa0&=&width=960&height=376" class="card-img" alt="...">

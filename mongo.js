@@ -31,6 +31,10 @@ const usuarioSchema = new mongoose.Schema({
 
 const Usuario = mongoose.model("Usuario", usuarioSchema)
 
+function load() {
+
+}
+
 app.get("/", async(req,res)=>{
     res.sendFile(__dirname+"/index.html")
 })
@@ -62,7 +66,7 @@ app.post("/cadastro",async(req,res)=>{
     const CEP = req.body.CEP 
     const UF = req.body.UF 
 
-    const todosElementos = [nome,email,senha,endereco,bairro,complemento,CEP,UF]
+    const todosElementos = [nome,email,senha]
 
 
 
@@ -103,18 +107,23 @@ app.post("/cadastro",async(req,res)=>{
             switch(i) {
                 case 2:
                     nome = 'endereco'
+                    todosElementos.push(endereco)
                     break;
                 case 3:
                     nome = 'bairro'
+                    todosElementos.push(bairro)
                     break;
                 case 4:
                     nome = 'complemento'
+                    todosElementos.push(complemento)
                     break;
                 case 5:
                     nome = 'CEP'
+                    todosElementos.push(CEP)
                     break;
                 case 6:
                     nome = 'UF'
+                    todosElementos.push(UF)
                     break;
             }
             usuarios[nome] = elemento
@@ -130,7 +139,7 @@ app.post("/cadastro",async(req,res)=>{
             var $ = cheerio.load(data);
 
             
-
+            // load main page later and prevent from going to the login page again
             $("#data").text(JSON.stringify(todosElementos));
             return res.send($.html()); 
           });

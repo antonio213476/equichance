@@ -37,12 +37,13 @@
         </div>
       </nav>  
 
-     <script>
+      <script>
         const cadastre = document.getElementById('cadastre')
-        const data = localStorage.getItem('dataUsuario')
-        
-        if(data) {
-          cadastre.textContent=localStorage.getItem('dataUsuario')
+        let dat = localStorage.getItem('dataUsuario')
+    
+        if(dat) {
+          let pessoa = JSON.parse(dat)
+          cadastre.textContent='Bem vindo, '+pessoa[0]
         }
      </script>
     

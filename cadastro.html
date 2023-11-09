@@ -31,11 +31,10 @@
           <li class="nav-item">
             <a class="nav-link fs-5 me-3" href="contato">Contato</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active fs-5 me-3" href="cadastro">Cadastre-se</a>
-          </li>
     </div>
-  </nav>   
+  </nav>  
+
+
 
        <div class="d-flex align-items-center flex-column">
           <h1 class="text-center mt-5">
@@ -130,12 +129,10 @@
       </p>
       <script>
         const data = document.getElementById('data')
+        let dat =  localStorage.getItem('dataUsuario')
 
-        //localStorage.setItem('dataUsuario', data.textContent)
-        let dat = JSON.parse(localStorage.getItem('dataUsuario'))
-  
-        console.log(dat[0])
-
+        
+        localStorage.setItem('dataUsuario', data.textContent)
       </script>
 
   <div vw class="enabled">
