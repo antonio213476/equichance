@@ -62,9 +62,10 @@ app.post("/cadastro",async(req,res)=>{
     const CEP = req.body.CEP 
     const UF = req.body.UF 
 
-    const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
+    const todosElementos = [nome,email,senha,endereco,bairro,complemento,CEP,UF]
 
-    
+
+
     if (!nome || !email || !senha) {
         fs.readFile('./cadastro.html', function(err, data) {
           if (err) throw err;
@@ -95,24 +96,24 @@ app.post("/cadastro",async(req,res)=>{
         senha : senha,
     })
 
-    for(let i=-1;i<elementosOpcionais.length - 1;i++) {
-        let elemento = elementosOpcionais[i]
+    for(let i=2;i<todosElementos.length - 1;i++) {
+        let elemento = todosElementos[i]
         let nome = 'error'
         if(elemento) {
             switch(i) {
-                case 0:
+                case 2:
                     nome = 'endereco'
                     break;
-                case 1:
+                case 3:
                     nome = 'bairro'
                     break;
-                case 2:
+                case 4:
                     nome = 'complemento'
                     break;
-                case 3:
+                case 5:
                     nome = 'CEP'
                     break;
-                case 4:
+                case 6:
                     nome = 'UF'
                     break;
             }
@@ -127,13 +128,11 @@ app.post("/cadastro",async(req,res)=>{
         fs.readFile('./cadastro.html', function(err, data) {
             if (err) throw err;
             var $ = cheerio.load(data);
-            let newUserString = JSON.stringify(newUser.toJSON())
-            console.log(newUserString)
-            $("#data").text(newUserString);
 
-            setTimeout(function() {
-                return res.sendFile(__dirname+"/index.html")
-              }, 1000);
+            
+
+            $("#data").text(JSON.stringify(todosElementos));
+            return res.send($.html()); 
           });
         return false
     } catch(err) {

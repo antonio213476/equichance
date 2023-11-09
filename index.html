@@ -39,12 +39,11 @@
 
      <script>
         const cadastre = document.getElementById('cadastre')
-        const data = document.getElementById('data')
+        const data = localStorage.getItem('dataUsuario')
         
         if(data) {
           cadastre.textContent=localStorage.getItem('dataUsuario')
         }
-        
      </script>
     
       <div class="card text-bg-dark" style="border-radius: 0; border: 0;">
