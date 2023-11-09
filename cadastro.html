@@ -117,16 +117,26 @@
                   </div>
             </div>
             <p class="text-danger mb-0" style="width: 85%;">
-                *Obrigatorio
+                *Obrigatório
             </p>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="termosCheck">
-              <label class="form-check-label" for="termosCheck">Concordo com os <u><a href="#">termos de uso</a></u></label>
-            </div>
+            <p id="erroCadastro" class="text-danger fw-medium mb-0 text-center mb-2" >
+              
+            </p>
             <button type="submit" class="btn btn-success w-50">Cadastrar</button>
           </form>
       </div>
 
+    
+      <p id="data" style="display: none;">fesfsfs</p>
+      <script>
+        const data = document.getElementById('data')
+
+        console.log(data)
+        data.addEventListener('changed'), function() {
+          console.log('data changed')
+          localStorage.setItem('dataUsuario', data.textContent)
+        }
+      </script>
 
   <div vw class="enabled">
     <div vw-access-button class="active"></div>

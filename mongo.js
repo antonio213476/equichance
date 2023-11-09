@@ -2,6 +2,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cheerio = require('cheerio')
+const fs = require("fs");
+const https = require("https");
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
@@ -11,14 +14,14 @@ const port = 3000;
 
 
 // mongo 
-mongoose.connect('mongodb://0.0.0.0:27017/equiChanceDB',{
+mongoose.connect('mongodb://127.0.0.1:27017/equiChanceDB',{
     serverSelectionTimeoutMS: 20000,
 });
 
 const usuarioSchema = new mongoose.Schema({
-    nome : {type : String, required: true},
-    email : {type : String, required: true},
-    senha : {type : String, required: true},
+    nome : {type : String},
+    email : {type : String},
+    senha : {type : String},
     endereco : {type : String},
     bairro : {type : String},
     complemento : {type : String},
@@ -48,6 +51,7 @@ app.listen(port, ()=>{
     console.log(`Servidor rodando na porta ${port}`)
 })  
 
+
 app.post("/cadastro",async(req,res)=>{
     const nome = req.body.nome
     const email = req.body.email 
@@ -60,14 +64,29 @@ app.post("/cadastro",async(req,res)=>{
 
     const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
 
-    if ([nome,email,senha].some(el => el == null) ) {          
-        return res.status(400).json({error : "Campos não preenchidos"})
+    
+    if (!nome || !email || !senha) {
+        fs.readFile('./cadastro.html', function(err, data) {
+          if (err) throw err;
+          var $ = cheerio.load(data);
+      
+          $("#erroCadastro").text("Campos obrigatórios não preenchidos.");
+          return res.send($.html()); 
+        });
+        return
     }
 
     const emailExiste = await Usuario.findOne({email:email})
 
     if(emailExiste) {
-        return res.status(400).json({error : "Email Já Existe!"})
+        fs.readFile('./cadastro.html', function(err, data) {
+            if (err) throw err;
+            var $ = cheerio.load(data);
+        
+            $("#erroCadastro").text("Email já cadastrado!");
+            return res.send($.html()); 
+          });
+          return
     }
 
     const usuarios = new Usuario({
@@ -100,12 +119,23 @@ app.post("/cadastro",async(req,res)=>{
             usuarios[nome] = elemento
         }
     }
-
-    // FAZE DEPOIS
+     
     // falar no site que o cadastro deu certo e depois rediricionar para a home 
     try{
         const newUser = await usuarios.save();
-        res.sendFile(__dirname+"/index.html")
+
+        fs.readFile('./cadastro.html', function(err, data) {
+            if (err) throw err;
+            var $ = cheerio.load(data);
+            let newUserString = JSON.stringify(newUser.toJSON())
+            console.log(newUserString)
+            $("#data").text(newUserString);
+
+            setTimeout(function() {
+                return res.sendFile(__dirname+"/index.html")
+              }, 1000);
+          });
+        return false
     } catch(err) {
         res.status(400).json({err})
     }
