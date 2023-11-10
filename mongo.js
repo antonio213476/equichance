@@ -67,7 +67,7 @@ app.post("/cadastro",async(req,res)=>{
     const UF = req.body.UF 
 
     const todosElementos = [nome,email,senha]
-
+    const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
 
 
     if (!nome || !email || !senha) {
@@ -100,28 +100,28 @@ app.post("/cadastro",async(req,res)=>{
         senha : senha,
     })
 
-    for(let i=2;i<todosElementos.length - 1;i++) {
-        let elemento = todosElementos[i]
+    for(let i=0;i<elementosOpcionais.length;i++) {
+        let elemento = elementosOpcionais[i]
         let nome = 'error'
         if(elemento) {
             switch(i) {
-                case 2:
+                case 0:
                     nome = 'endereco'
                     todosElementos.push(endereco)
                     break;
-                case 3:
+                case 1:
                     nome = 'bairro'
                     todosElementos.push(bairro)
                     break;
-                case 4:
+                case 2:
                     nome = 'complemento'
                     todosElementos.push(complemento)
                     break;
-                case 5:
+                case 3:
                     nome = 'CEP'
                     todosElementos.push(CEP)
                     break;
-                case 6:
+                case 4:
                     nome = 'UF'
                     todosElementos.push(UF)
                     break;
@@ -129,7 +129,7 @@ app.post("/cadastro",async(req,res)=>{
             usuarios[nome] = elemento
         }
     }
-     
+    
     // falar no site que o cadastro deu certo e depois rediricionar para a home 
     try{
         const newUser = await usuarios.save();
