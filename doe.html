@@ -38,12 +38,10 @@
   </nav>  
 
   <script>
-    const cadastre = document.getElementById('cadastre')
     let dat = localStorage.getItem('dataUsuario')
 
     if(dat) {
-      let pessoa = JSON.parse(dat)
-      cadastre.textContent='Bem vindo, '+pessoa[0]
+          cadastre.display.style = "none"
     }
  </script>
     

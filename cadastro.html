@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
     <title>Pagina INW AT</title>
 </head>
 <body class="bg-dark-subtle">
@@ -31,6 +32,9 @@
           <li class="nav-item">
             <a class="nav-link fs-5 me-3" href="contato">Contato</a>
           </li>
+          <li class="nav-item">
+            <a id='cadastre' class="nav-link active fs-5 me-3" href="cadastro">Cadastre-se</a>
+          </li>
     </div>
   </nav>  
 
@@ -41,11 +45,11 @@
             Cadastrar na equichance
           </h1>
        </div>
-      
 
-      <div class="mt-5 mb-5 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50" style="width: 50%; transform: translateX(50%)">
-        <form class="mb-3 mt-3 d-flex flex-column align-items-center" action="/cadastro" method="post">
-            <div class="mb-3"style="width: 85%;">
+       <form action="/cadastro" method="post" style="width: 50%; transform: translateX(50%)">
+      <div class="mt-5 mb-5 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50 mb-3 mt-3 d-flex flex-column align-items-center" >
+          <h1 class="fs-3 ms-4 align-self-start mt-3">Campos Obrigatórios</h1>
+          <div class="mb-3"style="width: 85%;">
                 <label class="form-label">Nome Completo*</label>
                 <input type="text" class="form-control border-secondary border-opacity-50" id="nome" name="nome">
               </div>
@@ -59,6 +63,9 @@
                     <input type="password" class="form-control border-secondary border-opacity-50" name="senha">
                   </div>
             </div>
+          </div>
+          <div class="mt-5 mb-5 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50 mb-3 mt-3 d-flex flex-column align-items-center" >
+            <h1 class="fs-3 ms-4 align-self-start">Campos Opcionais</h1>
             <div class="d-flex flex-row mb-3" style="width: 85%;">
                 <div class="w-100">
                     <label  class="form-label">Endereço</label>
@@ -66,63 +73,63 @@
                   </div>
             </div>
             <div class="d-flex flex-row mb-3" style="width: 85%;">
-                <div class="me-2" style="width:25%;">
+                <div class="me-2" style="width:50%;">
                     <label  class="form-label">Bairro</label>
                     <input type="text" class="form-control border-secondary border-opacity-50" name="bairro">
                   </div>
-                  <div class="me-2" style="width:25%;">
+                  <div class="me-2" style="width:50%;">
                     <label  class="form-label">Complemento</label>
                     <input type="text" class="form-control border-secondary border-opacity-50" name="complemento">
                   </div>
-                  <div class="me-2" style="width:25%">
-                    <label class="form-label">CEP</label>
-                    <input type="text" class="form-control border-secondary border-opacity-50" name="CEP">
-                  </div>
+              <div class="d-flex flex-row mb-3" style="width: 85%;">
+                    <div class="me-2" style="width:50%">
+                      <label class="form-label">CEP</label>
+                      <input type="text" class="form-control border-secondary border-opacity-50" name="CEP">
+                    </div>
 
-
-              
-                  <div class="" style="width:25%">
-                    <label  class="form-label">UF</label>
-                    <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui" name="UF">
-                    <datalist id="datalistOptions">
-                        <option value="Acre">
-                        <option value="Alagoas ">
-                        <option value="Amapá">
-                        <option value="Amazonas">
-                        <option value="Bahia"> 
-                        <option value="Ceará">
-                        <option value="Distrito_Federal">
-                        <option value="Espírito_Santo">
-                        <option value="Goiás">
-                        <option value="Maranhão">
-                        <option value="Mato Grosso">
-                        <option value="Mato Grosso do Sul">
-                        <option value="Minas Gerais">
-                        <option value="Pará">
-                        <option value="Paraíba">
-                        <option value="Paraná">
-                        <option value="Pernambuco">
-                        <option value="Piauí">
-                        <option value="Rio de Janeiro">
-                        <option value="Rio Grande do Norte">
-                        <option value="Rondônia">
-                        <option value="Roraima">
-                        <option value="Santa Catarina">
-                        <option value="São Paulo">
-                        <option value="Sergipe">
-                        <option value="Tocantins">
-                    </datalist>
+                    <div style="width:50%">
+                      <label class="form-label">UF</label>
+                      <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui" name="UF">
+                      <datalist id="datalistOptions">
+                          <option value="Acre">
+                          <option value="Alagoas ">
+                          <option value="Amapá">
+                          <option value="Amazonas">
+                          <option value="Bahia"> 
+                          <option value="Ceará">
+                          <option value="Distrito_Federal">
+                          <option value="Espírito_Santo">
+                          <option value="Goiás">
+                          <option value="Maranhão">
+                          <option value="Mato Grosso">
+                          <option value="Mato Grosso do Sul">
+                          <option value="Minas Gerais">
+                          <option value="Pará">
+                          <option value="Paraíba">
+                          <option value="Paraná">
+                          <option value="Pernambuco">
+                          <option value="Piauí">
+                          <option value="Rio de Janeiro">
+                          <option value="Rio Grande do Norte">
+                          <option value="Rondônia">
+                          <option value="Roraima">
+                          <option value="Santa Catarina">
+                          <option value="São Paulo">
+                          <option value="Sergipe">
+                          <option value="Tocantins">
+                      </datalist>
+                    </div>
                   </div>
-            </div>
             <p class="text-danger mb-0" style="width: 85%;">
                 *Obrigatório
             </p>
             <p id="erroCadastro" class="text-danger fw-medium mb-0 text-center mb-2" >
               
             </p>
-            <button type="submit" class="btn btn-success w-50">Cadastrar</button>
-          </form>
-      </div>
+            
+          </div>
+          <button type="submit" class="btn btn-success mt-2" style="width: 85%;">Cadastrar</button>
+    </form>
 
       <p id="data">
         
@@ -131,8 +138,10 @@
         const data = document.getElementById('data')
         let dat =  localStorage.getItem('dataUsuario')
 
-        
-        localStorage.setItem('dataUsuario', data.textContent)
+        if(data.textContent.includes("@")) {
+          localStorage.setItem('dataUsuario', data.textContent)
+          console.log('Data salva de usuario salva localmente:\n'+localStorage.getItem('dataUsuario'))
+        }
       </script>
 
   <div vw class="enabled">

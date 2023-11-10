@@ -7,6 +7,7 @@
     <title>Pagina INW AT</title>
 </head>
 <body>
+  
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
@@ -29,21 +30,28 @@
                 <a class="nav-link fs-5 me-3" href="doe">Doe</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-5 me-3" href="contato">Contato</a>
+                <a class="nav-link fs-5 me-2" href="contato">Contato</a>
               </li>
               <li class="nav-item">
-                <a id='cadastre' class="nav-link fs-5 me-3" href="cadastro">Cadastre-se</a>
+                  <a 
+                    id='cadastre' 
+                    class="nav-link fs-5" 
+                    href="cadastro"
+                    >
+                    <button class="btn btn-primary h-50 fw-bold">
+                      Cadastre-se
+                    </button>
+                  </a>
               </li>
         </div>
       </nav>  
 
       <script>
-        const cadastre = document.getElementById('cadastre')
         let dat = localStorage.getItem('dataUsuario')
-    
+        const cadastre = document.getElementById('cadastre')
+
         if(dat) {
-          let pessoa = JSON.parse(dat)
-          cadastre.textContent='Bem vindo, '+pessoa[0]
+          //cadastre.style.display = 'none'
         }
      </script>
     
@@ -185,5 +193,6 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
         crossorigin="anonymous">
     </script>
+    
 </body>
 </html>
