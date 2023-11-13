@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     
-    <title>Pagina INW AT</title>
+    <title>Cadastro da Equichance</title>
 </head>
-<body class="bg-dark-subtle">
+<body class="">
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -23,71 +23,71 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
-         <li class="nav-item">
-            <a class="nav-link fs-5 me-3" aria-current="page" href="/">Quem somos</a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="doe">Doe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="contato">Contato</a>
-          </li>
-          <li class="nav-item">
-            <a id='cadastre' class="nav-link active fs-5 me-3" href="cadastro">Cadastre-se</a>
-          </li>
+            <a 
+              id='cadastre' 
+              class="nav-link fs-5" 
+              href="login"
+              >
+              <button class="btn btn-primary h-50 fw-bold">
+                Login
+              </button>
+            </a>
+        </li>
+        </ul>
     </div>
   </nav>  
-
+  <div class="w-100 bg-secondary" style="height: 1px;"></div>
 
 
        <div class="d-flex align-items-center flex-column">
           <h1 class="text-center mt-5">
             Cadastrar na equichance
           </h1>
+          <h3 class="text-center mt-0 fw-light fs-5">
+            Cadastre para ter accesso completo a nossas tecnologias.
+          </h3>
        </div>
 
-       <form action="/cadastro" method="post" style="width: 50%; transform: translateX(50%)">
-      <div class="mt-5 mb-0 bg-secondary-subtle bg-opacity-10 border border-1 rounded-1 border-secondary border-opacity-50 d-flex flex-column align-items-center" >
-          <h1 class="fs-3 ms-4 align-self-start mt-3">Campos Obrigatórios</h1>
-          <div class="mb-3"style="width: 85%;">
-                <label class="form-label">Nome Completo</label>
+       <form class="d-flex align-items-center justify-content-center flex-column m-0" action="/cadastro" method="post">
+
+        <div class="mb-3 w-50">
+                <label class="form-label">Nome*</label>
                 <input type="text" class="form-control border-secondary border-opacity-50" id="nome" name="nome">
               </div>
-            <div class="d-flex flex-row mb-3" style="width: 85%;">
+            <div class="d-flex flex-row mb-3 w-50">
                 <div class="me-2 w-50">
-                    <label  class="form-label">Email</label>
+                    <label  class="form-label">Email*</label>
                     <input type="email" class="form-control border-secondary border-opacity-50" name="email">
                   </div>
                   <div class="ms-2 w-50">
-                    <label class="form-label">Senha</label>
+                    <label class="form-label">Senha*</label>
                     <input type="password" class="form-control border-secondary border-opacity-50" name="senha">
                   </div>
             </div>
-            <div class="w-100 bg-secondary" style="height: 0.1vw;"></div>
-            <h1 class="fs-3 ms-4 align-self-start mt-3">Campos Opcionais</h1>
-            <div class="d-flex flex-row mb-3" style="width: 85%;">
+            <div class="d-flex flex-row mb-3 w-50">
                 <div class="w-100">
                     <label  class="form-label">Endereço</label>
                     <input type="text" class="form-control border-secondary border-opacity-50" name="endereco">
                   </div>
             </div>
-            <div class="d-flex flex-row mb-3" style="width: 85%;">
-                <div class="me-2" style="width:50%;">
+            <div class="d-flex flex-row mb-3 w-50">
+                <div class="me-2 w-50">
                     <label  class="form-label">Bairro</label>
                     <input type="text" class="form-control border-secondary border-opacity-50" name="bairro">
                   </div>
-                  <div class="me-2" style="width:50%;">
+                  <div class="me-2 w-50">
                     <label  class="form-label">Complemento</label>
                     <input type="text" class="form-control border-secondary border-opacity-50" name="complemento">
                   </div>
             </div>
-              <div class="d-flex flex-row mb-3" style="width: 85%;">
-                    <div class="me-2" style="width:50%">
+              <div class="d-flex flex-row mb-3 w-50">
+                    <div class="me-2 w-50">
                       <label class="form-label">CEP</label>
                       <input type="text" class="form-control border-secondary border-opacity-50" name="CEP">
                     </div>
 
-                    <div style="width:50%">
+                    <div class="w-50">
                       <label class="form-label">UF</label>
                       <input class="form-control border-secondary border-opacity-50" list="datalistOptions" id="exampleDataList" placeholder="Escreva Aqui" name="UF">
                       <datalist id="datalistOptions">
@@ -120,15 +120,16 @@
                       </datalist>
                     </div>
               </div>
-                  <button type="submit" class="btn btn-success mt-2 mb-3" style="width: 85%">Cadastrar</button>
+              
+              <p id="" class="fw-medium mb-0 mb-2" >*Obrigatorio</p>
+              <p id="erroCadastro" class="text-danger fw-medium mb-0 text-center mb-2" ></p>
+                  <button type="submit" class="btn btn-success mt-2 mb-3 w-50">Cadastrar</button>
                   </div>
            
 
-            <p id="erroCadastro" class="text-danger fw-medium mb-0 text-center mb-2" >
-              
-            </p>
+         
             
-          </div>
+     
           
     </form>
 
