@@ -38,7 +38,7 @@
                     class="nav-link fs-5" 
                     href="cadastro"
                     >
-                    <button class="btn btn-primary h-50 fw-bold">
+                    <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
                       Cadastre-se
                     </button>
                   </a>
@@ -50,9 +50,12 @@
       <script>
         let dat = localStorage.getItem('dataUsuario')
         const cadastre = document.getElementById('cadastre')
+        const botaoCadastro = document.getElementById('botaoCadastro')
 
         if(dat) {
-          //cadastre.style.display = 'none'
+          console.log(dat)
+          botaoCadastro.textContent = 'Sua Conta'
+          cadastre.href = 'conta'
         }
      </script>
     
@@ -135,7 +138,7 @@
             <div class="card-body">
               <h5 class="card-title">Noticia</h5>
               <p class="card-text">Esse é o texto da noticia que vai descrever ela um pouco e falar um breve resumo sobre ela.</p>
-              <a href="#" class="btn btn-primary">Veja Mais</a>
+              <a href="" class="btn btn-primary">Veja Mais</a>
             </div>
             <div class="card-footer">
               <small class="text-body-secondary">5 dias atrás</small>
@@ -146,7 +149,7 @@
             <div class="card-body">
               <h5 class="card-title">Noticia</h5>
               <p class="card-text">Esse é o texto da noticia que vai descrever ela um pouco e falar um breve resumo sobre ela.</p>
-              <a href="#" class="btn btn-primary">Veja Mais</a>
+              <a href="" class="btn btn-primary">Veja Mais</a>
             </div>
             <div class="card-footer">
               <small class="text-body-secondary">5 dias atrás</small>
@@ -157,7 +160,7 @@
             <div class="card-body">
               <h5 class="card-title">Noticia</h5>
               <p class="card-text">Esse é o texto da noticia que vai descrever ela um pouco e falar um breve resumo sobre ela.</p>
-              <a href="#" class="btn btn-primary">Veja Mais</a>
+              <a href="" class="btn btn-primary">Veja Mais</a>
             </div>
             <div class="card-footer">
               <small class="text-body-secondary">5 dias atrás</small>

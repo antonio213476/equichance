@@ -125,15 +125,9 @@
               <p id="erroCadastro" class="text-danger fw-medium mb-0 text-center mb-2" ></p>
                   <button type="submit" class="btn btn-success mt-2 mb-3 w-50">Cadastrar</button>
                   </div>
-           
-
-         
-            
-     
-          
     </form>
 
-      <p id="data">
+      <p id="data" style="display: none;">
         
       </p>
       <script>
@@ -142,7 +136,12 @@
 
         if(data.textContent.includes("@")) {
           localStorage.setItem('dataUsuario', data.textContent)
-          console.log('Data salva de usuario salva localmente:\n'+localStorage.getItem('dataUsuario'))
+          
+          let usuario = JSON.parse(localStorage.getItem('dataUsuario'))
+
+          console.log('Data salva de usuario salva localmente:\n'+JSON.stringify(usuario))
+
+          location.href="/"
         }
       </script>
 

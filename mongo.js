@@ -47,8 +47,16 @@ app.get("/contato", async(req,res)=>{
     res.sendFile(__dirname+"/contato.html")
 })
 
+app.get("/login", async(req,res)=>{
+    res.sendFile(__dirname+"/login.html")
+})
+
 app.get("/doe", async(req,res)=>{
     res.sendFile(__dirname+"/doe.html")
+})
+
+app.get("/conta", async(req,res)=>{
+    res.sendFile(__dirname+"/conta.html")
 })
 
 app.listen(port, ()=>{
@@ -56,12 +64,11 @@ app.listen(port, ()=>{
 })  
 
 app.post("/login",async(req,res)=>{
-    const email = req.body.email 
-    const senha = req.body.senha 
+    const emailLogin = req.body.emailLogin
+    const senhaLogin = req.body.senhaLogin 
 
-
-    if (!email || !senha) {
-        fs.readFile('./cadastro.html', function(err, data) {
+    if (!emailLogin || !senhaLogin) {
+        fs.readFile('./login.html', function(err, data) {
           if (err) throw err;
           var $ = cheerio.load(data);
       
@@ -71,10 +78,10 @@ app.post("/login",async(req,res)=>{
         return
     }
 
-    const usuarioMongo = await Usuario.findOne({email:email})
+    const usuarioMongo = await Usuario.findOne({email:emailLogin})
 
     if(!usuarioMongo) {
-        fs.readFile('./cadastro.html', function(err, data) {
+        fs.readFile('./login.html', function(err, data) {
             if (err) throw err;
             var $ = cheerio.load(data);
         
@@ -83,7 +90,7 @@ app.post("/login",async(req,res)=>{
           });
           return
     }
-    if(senha !== usuarioMongo.senha) {
+    if(senhaLogin !== usuarioMongo.senha) {
         fs.readFile('./login.html', function(err, data) {
             if (err) throw err;
             var $ = cheerio.load(data);
@@ -102,7 +109,7 @@ app.post("/login",async(req,res)=>{
 
             
             // load main page later and prevent from going to the login page again
-            $("#data").text(JSON.stringify(todosElementos));
+            $("#dataLogin").text(JSON.stringify(usuarioMongo));
             return res.send($.html()); 
           });
         return false
@@ -121,9 +128,6 @@ app.post("/cadastro",async(req,res)=>{
     const complemento = req.body.complemento
     const CEP = req.body.CEP 
     const UF = req.body.UF 
-
-    const todosElementos = [nome,email,senha]
-    const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
 
 
     if (!nome || !email || !senha) {
@@ -156,35 +160,7 @@ app.post("/cadastro",async(req,res)=>{
         senha : senha,
     })
 
-    for(let i=0;i<elementosOpcionais.length;i++) {
-        let elemento = elementosOpcionais[i]
-        let nome = 'error'
-        if(elemento) {
-            switch(i) {
-                case 0:
-                    nome = 'endereco'
-                    todosElementos.push(endereco)
-                    break;
-                case 1:
-                    nome = 'bairro'
-                    todosElementos.push(bairro)
-                    break;
-                case 2:
-                    nome = 'complemento'
-                    todosElementos.push(complemento)
-                    break;
-                case 3:
-                    nome = 'CEP'
-                    todosElementos.push(CEP)
-                    break;
-                case 4:
-                    nome = 'UF'
-                    todosElementos.push(UF)
-                    break;
-            }
-            usuarios[nome] = elemento
-        }
-    }
+    
     
     // falar no site que o cadastro deu certo e depois rediricionar para a home 
     try{
@@ -196,7 +172,7 @@ app.post("/cadastro",async(req,res)=>{
 
             
             // load main page later and prevent from going to the login page again
-            $("#data").text(JSON.stringify(todosElementos));
+            $("#data").text(JSON.stringify(newUser));
             return res.send($.html()); 
           });
         return false

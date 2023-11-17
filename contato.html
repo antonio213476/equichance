@@ -32,25 +32,29 @@
             <a class="nav-link active fs-5 me-2" href="contato">Contato</a>
           </li>
           <li class="nav-item">
-              <a 
-                id='cadastre' 
-                class="nav-link fs-5" 
-                href="cadastro"
-                >
-                <button class="btn btn-primary h-50 fw-bold">
-                  Cadastre-se
-                </button>
-              </a>
-          </li>
+            <a 
+              id='cadastre' 
+              class="nav-link fs-5" 
+              href="cadastro"
+              >
+              <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
+                Cadastre-se
+              </button>
+            </a>
+        </li>
         </ul> 
     </div>
   </nav>
 
   <script>
     let dat = localStorage.getItem('dataUsuario')
+    const cadastre = document.getElementById('cadastre')
+    const botaoCadastro = document.getElementById('botaoCadastro')
 
     if(dat) {
-          cadastre.display.style = "none"
+      console.log(dat)
+      botaoCadastro.textContent = 'Sua Conta'
+      cadastre.href = 'conta'
     }
  </script>
     

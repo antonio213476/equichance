@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
+    <title>Cadastro da Equichance</title>
+</head>
+<body class="">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img 
+              src="https://media.discordapp.net/attachments/1096093111328972973/1171771555244683294/LogoEquiChance.png?ex=655de44d&is=654b6f4d&hm=87a835c88c93bcee1a7898357b4c8c9573657740398cba263bc77d4ec6dcf093&="
+             class="img-fluid m-0 p-0" 
+             alt="Equichance"
+             >
+            Equichance
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
+          <li class="nav-item">
+            <a 
+              id='logout' 
+              class="nav-link fs-5" 
+              onclick="logout()"
+              >
+              <button class="btn btn-danger h-50 fw-bold">
+                Logout
+              </button>
+            </a>
+        </li>
+        </ul>
+    </div>
+  </nav>  
+  <div class="w-100" style="height: 1px; background-color: #d9d9d9;"></div>
+
+
+       <div class="d-flex align-items-start flex-column ms-5 mb-5">
+          <h1 class="text-center mt-5">
+            Sua Conta
+          </h1>
+       </div>
+
+       <div class="d-flex align-items-start justify-content-start flex-column ms-5">
+        <div class="d-flex align-items-start justify-content-start flex-row w-100">
+          <div class="mb-3 me-3" style="width: 40%;">
+            <label class="form-label">Nome</label>
+            <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+              <p id="nomeConta" class="m-0" name="nomeConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+            </div>
+        </div>
+        <div class="mb-3 me-3" style="width: 25%;">
+          <label class="form-label">Email</label>
+          <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+            <p id="emailConta" class="m-0" name="emailConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+          </div>
+        </div>
+        <div class="mb-3 me-3" style="width: 25%;">
+          <label class="form-label">Senha</label>
+          <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+            <p id="senhaConta" class="m-0" name="senhaConta" style="font-size: 1rem;padding: 0.35rem;">••••••••</p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-start justify-content-start flex-row w-100">
+        <div class="mb-3 me-3" style="width: 55%;">
+          <label class="form-label">Endereço</label>
+          <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+            <p id="enderecoConta" class="m-0" name="enderecoConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+          </div>
+      </div>
+      <div class="mb-3 me-3" style="width: 36%;">
+        <label class="form-label">Bairro</label>
+        <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+          <p id="bairroConta" class="m-0" name="bairroConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-items-start justify-content-start flex-row w-100">
+      <div class="mb-3 me-3" style="width: 50%;">
+        <label class="form-label">Complemento</label>
+        <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+          <p id="complementoConta" class="m-0" name="complementoConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+        </div>
+      </div>
+      <div class="mb-3 me-3" style="width: 20%;">
+        <label class="form-label">CEP</label>
+        <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+          <p id="cepConta" class="m-0" name="cepConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+        </div>
+    </div>
+    <div class="mb-3 me-3" style="width: 20%;">
+      <label class="form-label">UF</label>
+      <div class="bg-secondary-subtle border border-secondary-subtle" style="height: 2.35rem; width: 100%;">
+        <p id="ufConta" class="m-0" name="ufConta" style="font-size: 1rem;padding: 0.35rem;overflow:hidden;white-space: nowrap;text-overflow: ellipsis;"></p>
+      </div>
+  </div>
+  </div>
+    
+  </div>
+       </div>
+
+       
+      <script>
+        let usuario = JSON.parse(localStorage.getItem('dataUsuario'))
+
+        const email = document.getElementById('emailConta')
+        const nome = document.getElementById('nomeConta')
+        const endereco = document.getElementById('enderecoConta')
+        const bairro = document.getElementById('bairroConta')
+        const complemento = document.getElementById('complementoConta')
+        const cep = document.getElementById('cepConta')
+        const uf = document.getElementById('ufConta')
+
+
+        email.textContent = usuario.email
+        nome.textContent = usuario.nome
+        endereco.textContent = usuario.endereco
+        bairro.textContent = usuario.bairro
+        complemento.textContent = usuario.complemento
+        cep.textContent = usuario.cep
+        uf.textContent = usuario.uf
+
+        console.log('Dados encontrados: '+JSON.stringify(usuario))
+
+        function logout() {
+          localStorage.removeItem('dataUsuario');
+          location.href = 'login'
+        }
+      </script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+    <script   
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
