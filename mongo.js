@@ -55,6 +55,62 @@ app.listen(port, ()=>{
     console.log(`Servidor rodando na porta ${port}`)
 })  
 
+app.post("/login",async(req,res)=>{
+    const email = req.body.email 
+    const senha = req.body.senha 
+
+
+    if (!email || !senha) {
+        fs.readFile('./cadastro.html', function(err, data) {
+          if (err) throw err;
+          var $ = cheerio.load(data);
+      
+          $("#erroLogin").text("Campos obrigatórios não preenchidos.");
+          return res.send($.html()); 
+        });
+        return
+    }
+
+    const usuarioMongo = await Usuario.findOne({email:email})
+
+    if(!usuarioMongo) {
+        fs.readFile('./cadastro.html', function(err, data) {
+            if (err) throw err;
+            var $ = cheerio.load(data);
+        
+            $("#erroLogin").text("Email ou senha invalidos");
+            return res.send($.html()); 
+          });
+          return
+    }
+    if(senha !== usuarioMongo.senha) {
+        fs.readFile('./login.html', function(err, data) {
+            if (err) throw err;
+            var $ = cheerio.load(data);
+        
+            $("#erroLogin").text("Email ou senha invalidos");
+            return res.send($.html()); 
+          });
+          return
+    }
+    
+    // falar no site que o cadastro deu certo e depois rediricionar para a home 
+    try{
+        fs.readFile('./login.html', function(err, data) {
+            if (err) throw err;
+            var $ = cheerio.load(data);
+
+            
+            // load main page later and prevent from going to the login page again
+            $("#data").text(JSON.stringify(todosElementos));
+            return res.send($.html()); 
+          });
+        return false
+    } catch(err) {
+        res.status(400).json({err})
+    }
+})
+
 
 app.post("/cadastro",async(req,res)=>{
     const nome = req.body.nome
