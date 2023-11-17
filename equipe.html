@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Pagina INW AT</title>
+    <title>Contato</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
@@ -29,23 +29,25 @@
             <a class="nav-link fs-5 me-3" href="doe">Doe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active fs-5 me-2" href="contato">Contato</a>
+            <a class="nav-link active fs-5 me-2" href="equipe">Equipe</a>
           </li>
           <li class="nav-item">
-            <a 
-              id='cadastre' 
-              class="nav-link fs-5" 
-              href="cadastro"
-              >
-              <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
-                Cadastre-se
-              </button>
-            </a>
-        </li>
+              <a 
+                id='cadastre' 
+                class="nav-link fs-5" 
+                href="cadastro"
+                >
+                <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
+                  Cadastre-se
+                </button>
+              </a>
+          </li>
         </ul> 
     </div>
-  </nav>
+  </nav> 
+  <div class="w-100" style="height: 1px; background-color: #d9d9d9;"></div>
 
+  
   <script>
     let dat = localStorage.getItem('dataUsuario')
     const cadastre = document.getElementById('cadastre')
@@ -58,37 +60,48 @@
     }
  </script>
     
-      <div class="card text-bg-dark" style="border-radius: 0; border: 0;">
-        <img src="https://media.discordapp.net/attachments/1096093111328972973/1171771557123731476/Ong4.png?ex=655de44d&is=654b6f4d&hm=396c00bfb0c9d7e7c37d654de2c65ca016af20f56d69003d537e562aa87ca0d7&=&width=960&height=376" class="card-img" alt="...">
-        <div class="card-img-overlay img-fluid" style="display: flex; justify-content: end; flex-direction: column;">
-          <p class="card-text ms-5 fs-6 mb-0 fw-medium  " style="color: #6FDEDE;">Contato</p>
-          <h5 class="card-title  ms-5 fs-1 fw-bold mb">Vamos bater um papo?</h5>
-        </div>
-        
+    <div class="d-flex align-items-center flex-column">
+      <h1 class="text-center mt-5 mb-5">
+        Nossa Equipe
+      </h1>
+   </div>
+   <div class="mb-5" style="height: 1rem;width: 100%;"></div>
+   <div class="mt-5 mb-5"> 
+    <div class="d-flex flex-row justify-content-around mt-5">
+      <div class="card me-3" style="width: 15%">
+        <img src="https://media.discordapp.net/attachments/1173965232767504466/1175159078796935349/IMG_4025.jpg?ex=656a372d&is=6557c22d&hm=e7928713213b2b483a04ed861821fc9092db3342acb44441de5c0c0ab269d54d&=&width=503&height=671" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Antonio Di Cillo</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Front-End, Back-End, APIs</h6>
+          </div>
       </div>
-
-      <div class="ms-5 mt-5 mb-5" style="display: flex;flex-direction: column;"> 
-        <h5 class="m-0 fs-4 mb-5 fw-bold text-secondary">Atendimento por celular: (11) 12345-6789</h5>
-        <div class="m-0" style="display: flex; flex-direction: row;">
-          <input type="email" class="form-control mb-5 me-3 w-25" id="exampleFormControlInput1" placeholder="Nome">
-          <input type="email" class="form-control mb-5 w-25" id="exampleFormControlInput1" placeholder="Nome da empresa/ONG">
-        </div>
-        <div style="display: flex; flex-direction: row;">
-          <input type="email" class="form-control mb-5 me-3 w-25" id="exampleFormControlInput1" placeholder="E-mail">
-          <input type="email" class="form-control mb-5 w-25" id="exampleFormControlInput1" placeholder="Celular">
-        </div>
-        <div style="display: flex; flex-direction: row;">
-          <input type="email" class="form-control mb-5 me-3 w-50" id="exampleFormControlInput1" placeholder="Mais informações">
-            </div>
-         <button class="btn btn-primary w-50">Enviar</button>
+      <div class="card me-3" style="width: 15%">
+        <img src="https://images.unsplash.com/photo-1602576666092-bf6447a729fc?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gustavo Castanha</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Figma, Ideas</h6>
+          </div>
       </div>
-      
-
-      <div class="bg-dark text-center" style="display: flex;text-align: center; justify-content: center;align-items: center;height: 5rem;"> 
-        <p class="text-white ">
-          Copyright 2023 - Equichance 
-        </p>
     </div>
+  </div>
+
+  <style>
+    .card-img-top {
+      width: 100%;
+      height: 15vw;
+      object-fit: cover;
+    }
+  </style>
+
+  <div class="mb-5" style="height: 1rem;width: 100%;"></div>
+  <div class="mb-5" style="height: 1rem;width: 100%;"></div>
+  <div class="mb-5" style="height: 1rem;width: 100%;"></div>
+
+<div class="bg-dark text-center mt-5" style="display: flex;text-align: center; justify-content: center;align-items: center;height: 5rem;"> 
+  <p class="text-white ">
+    Copyright 2023 - Equichance 
+  </p>
+</div>  
 
   <div vw class="enabled">
     <div vw-access-button class="active"></div>

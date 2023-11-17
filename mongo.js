@@ -43,8 +43,8 @@ app.get("/cadastro", async(req,res)=>{
     res.sendFile(__dirname+"/cadastro.html")
 })
 
-app.get("/contato", async(req,res)=>{
-    res.sendFile(__dirname+"/contato.html")
+app.get("/equipe", async(req,res)=>{
+    res.sendFile(__dirname+"/equipe.html")
 })
 
 app.get("/login", async(req,res)=>{
@@ -129,6 +129,8 @@ app.post("/cadastro",async(req,res)=>{
     const CEP = req.body.CEP 
     const UF = req.body.UF 
 
+    const todosElementos = [nome,email,senha]
+    const elementosOpcionais = [endereco,bairro,complemento,CEP,UF]
 
     if (!nome || !email || !senha) {
         fs.readFile('./cadastro.html', function(err, data) {
@@ -160,7 +162,36 @@ app.post("/cadastro",async(req,res)=>{
         senha : senha,
     })
 
-    
+
+    for(let i=0;i<elementosOpcionais.length;i++) {
+        let elemento = elementosOpcionais[i]
+        let nome = 'error'
+        if(elemento) {
+            switch(i) {
+                case 0:
+                    nome = 'endereco'
+                    todosElementos.push(endereco)
+                    break;
+                case 1:
+                    nome = 'bairro'
+                    todosElementos.push(bairro)
+                    break;
+                case 2:
+                    nome = 'complemento'
+                    todosElementos.push(complemento)
+                    break;
+                case 3:
+                    nome = 'CEP'
+                    todosElementos.push(CEP)
+                    break;
+                case 4:
+                    nome = 'UF'
+                    todosElementos.push(UF)
+                    break;
+            }
+            usuarios[nome] = elemento
+        }
+    }
     
     // falar no site que o cadastro deu certo e depois rediricionar para a home 
     try{

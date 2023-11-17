@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     
-    <title>Cadastro da Equichance</title>
+    <title>Conta</title>
 </head>
 <body class="">
   <nav class="navbar navbar-expand-lg bg-light">
@@ -23,6 +23,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
+          <li class="nav-item">
+            <a class="nav-link fs-5 me-3" aria-current="page" href="/">Quem somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 me-3" href="doe">Doe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fs-5 me-2" href="equipe">Equipe</a>
+          </li>
           <li class="nav-item">
             <a 
               id='logout' 
@@ -123,8 +132,8 @@
         endereco.textContent = usuario.endereco
         bairro.textContent = usuario.bairro
         complemento.textContent = usuario.complemento
-        cep.textContent = usuario.cep
-        uf.textContent = usuario.uf
+        cep.textContent = usuario.CEP
+        uf.textContent = usuario.UF
 
         console.log('Dados encontrados: '+JSON.stringify(usuario))
 
