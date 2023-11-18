@@ -51,6 +51,10 @@ app.get("/login", async(req,res)=>{
     res.sendFile(__dirname+"/login.html")
 })
 
+app.get("/obrigado", async(req,res)=>{
+    res.sendFile(__dirname+"/obrigado.html")
+})
+
 app.get("/doe", async(req,res)=>{
     res.sendFile(__dirname+"/doe.html")
 })

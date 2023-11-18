@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Doe para a Equichance</title>
+</head>
+<body>
+  <div class="d-flex justify-content-center align-items-center flex-column" style="height: 20rem;width:100%">
+    <h1 id="doado" class="text-center" style="color:#5c5c5c">
+      Obrigado pela sua doação!
+    </h1>
+    <h3 class="text-center mt-0 fw-light fs-5">
+      Você será rediricionado em um instante...
+    </h3>
+  </div>
+    
+    <script>
+      let doe = localStorage.getItem('doar')
+      let doado = document.getElementById('doado')
+
+      doado.textContent = 'Obrigado por doar R$ '+doe
+      setTimeout(() => {
+        location.href = '/'
+      }, 3000);
+    </script>
+
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
