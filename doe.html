@@ -9,7 +9,7 @@
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="index.html">
             <img 
               src="https://media.discordapp.net/attachments/1096093111328972973/1171771555244683294/LogoEquiChance.png?ex=655de44d&is=654b6f4d&hm=87a835c88c93bcee1a7898357b4c8c9573657740398cba263bc77d4ec6dcf093&="
              class="img-fluid m-0 p-0" 
@@ -23,19 +23,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
          <li class="nav-item">
-            <a class="nav-link fs-5 me-3" aria-current="page" href="/">Quem somos</a>
+            <a class="nav-link fs-5 me-3" aria-current="page" href="index.html">Quem somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active fs-5 me-3" href="doe">Doe</a>
+            <a class="nav-link active fs-5 me-3" href="doe.html">Doe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-2" href="equipe">Equipe</a>
+            <a class="nav-link fs-5 me-2" href="equipe.html">Equipe</a>
           </li>
           <li class="nav-item">
               <a 
                 id='cadastre' 
                 class="nav-link fs-5" 
-                href="cadastro"
+                href="cadastro.html"
                 >
                 <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
                   Cadastre-se
@@ -44,7 +44,7 @@
           </li>
         </ul> 
     </div>
-  </nav> 
+  </nav>
 
   <script>
     let dat = localStorage.getItem('dataUsuario')
@@ -53,7 +53,7 @@
 
     if(dat) {
       botaoCadastro.textContent = 'Sua Conta'
-      cadastre.href = 'conta'
+      cadastre.href = 'conta.html'
     }
  </script>
     

@@ -23,29 +23,29 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
-          <li class="nav-item">
-            <a class="nav-link fs-5 me-3" aria-current="page" href="/">Quem somos</a>
+         <li class="nav-item">
+            <a class="nav-link fs-5 me-3" aria-current="page" href="index.html">Quem somos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-3" href="doe">Doe</a>
+            <a class="nav-link fs-5 me-3" href="doe.html">Doe</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5 me-2" href="equipe">Equipe</a>
+            <a class="nav-link fs-5 me-2" href="equipe.html">Equipe</a>
           </li>
           <li class="nav-item">
-            <a 
-              id='cadastre' 
-              class="nav-link fs-5" 
-              href="cadastro"
-              >
-              <button class="btn btn-primary h-50 fw-bold">
-                Cadastre-se
-              </button>
-            </a>
-        </li>
-        </ul>
+              <a 
+                id='cadastre' 
+                class="nav-link fs-5" 
+                href="cadastro.html"
+                >
+                <button id="botaoCadastro" class="btn btn-primary h-50 fw-bold">
+                  Cadastre-se
+                </button>
+              </a>
+          </li>
+        </ul> 
     </div>
-  </nav>  
+  </nav>
   <div class="w-100" style="height: 1px; background-color: #d9d9d9;"></div>
 
 
@@ -84,7 +84,7 @@
           let usuario = JSON.parse(localStorage.getItem('dataUsuario'))
 
           console.log('Data salva de usuario salva localmente:\n'+JSON.stringify(usuario))
-          location.href="/"
+          location.href="conta.html"
         }
       </script>
 
